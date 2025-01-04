@@ -1,11 +1,14 @@
 import Logo from "../assets/images/logo.png";
 import { useState } from "react";
 
-function Header() {
+function Header({ isScrolled }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="header" id="header">
+    <header
+      className={`header ${isScrolled ? "shadow-header" : ""}`}
+      id="header"
+    >
       <nav className="nav container">
         <a href="#home" className="nav__logo">
           <img src={Logo} alt="SunChips logo" />
