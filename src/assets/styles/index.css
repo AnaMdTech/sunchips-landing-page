@@ -350,7 +350,42 @@ img {
 }
 
 /*=============== FAVORITES ===============*/
-
+.favorite__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: fit-content;
+  margin: 0 24px;
+  padding: 80px 0 16px;
+}
+.favorite__content {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  justify-content: center;
+}
+.favorite__content h1 {
+  font: var(--font-regular) var(--h1-font-size) var(--second-font);
+  line-height: 100%;
+  margin-bottom: 1rem;
+  text-shadow: var(--shadow-text);
+  text-align: center;
+}
+.favorite__content p {
+  text-align: center;
+}
+.favorite__imgs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.favorite__imgs img {
+  width: 100%;
+  overflow: hidden;
+}
 /*=============== CARE ===============*/
 
 /*=============== BANNER ===============*/
