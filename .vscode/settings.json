@@ -20,5 +20,6 @@
     "statusBarItem.remoteForeground": "#e7e7e7",
     "tab.activeBorder": "#f80053"
   },
-  "peacock.color": "#c50042"
+  "peacock.color": "#c50042",
+  "cSpell.words": ["Habesha"]
 }
