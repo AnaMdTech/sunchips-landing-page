@@ -352,7 +352,66 @@ img {
 /*=============== FAVORITES ===============*/
 
 /*=============== CARE ===============*/
+.care {
+  padding-top: 1.5rem;
+  justify-content: center;
+  row-gap: 4rem;
+  background-color: var(--first-color-dark);
+  margin: 0 auto;
+}
 
+.care__container {
+  display: flex;
+  padding-top: 1.5rem;
+  max-width: 100%;
+  justify-content: center;
+  justify-self: center;
+  flex-direction: column; /* Default: column */
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 376px) {
+  .care__container {
+    flex-direction: row-reverse;
+    margin-bottom: 50px; /* Switch to row-reverse for widths above 375px */
+  }
+}
+
+.care__data {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.Care__title {
+  text-align: center;
+  font: var(--font-regular) var(--h1-font-size) var(--second-font);
+  line-height: 100%;
+  text-shadow: var(--shadow-text);
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.care__description {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.care__description i {
+  font-size: 1.5rem;
+  color: var(--second-color);
+}
+.care__chip {
+  filter: var(--shadow-img);
+  overflow: hidden;
+  -webkit-filter: var(--shadow-img);
+  max-width: 100%;
+  width: 300px;
+}
 /*=============== BANNER ===============*/
 
 /*=============== PRODUCTS ===============*/
