@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Main from "./components/Main";
 import Products from "./components/Products";
+import Banner from "./components/Banner";
 
 function App() {
   // const [currentTab, setCurrentTab] = useState("Home");
@@ -36,6 +37,7 @@ function App() {
         <Home />
         <Favorites />
         <Care />
+        <Banner />
         <Products />
         <Contact />
       </Main>
