@@ -2,39 +2,41 @@ import care_chip from "../assets/images/care-chips.png";
 function Care() {
   return (
     <section className="care section" id="care">
-      <h1 className="Care__title">
-        ENJOY AND TAKE
-        <br />
-        CARE OF YOUR HEALTH
-      </h1>
-      <div className="care__container">
-        <div className="care__data">
-          <div className="care__description">
-            <i class="ri-plant-line"></i>
+      <h2 className="section__title">
+        ENJOY AND TAKE <br /> CARE OF YOUR HEALTH
+      </h2>
+      <div className="care__container container grid">
+        <ul className="care__list">
+          <li className="care__item">
+            <i className="ri-plant-line"></i>
             <p>
-              The potatoas that are made into snacks grown and harvested are
-              100% organic.
+              The potatoes that are made into snacks are grown and harvested and
+              are 100% organic.
             </p>
-          </div>
-          <div className="care__description">
-            <i class="ri-fire-line"></i>
+          </li>
+
+          <li className="care__item">
+            <i className="ri-fire-line"></i>
             <p>
-              We try the fries with vegetable and natural all for good care.
+              We fry the fries with vegetable and natural oil for good care.
             </p>
-          </div>
-          <div className="care__description">
-            <i class="ri-heart-pulse-line"></i>
+          </li>
+
+          <li className="care__item">
+            <i className="ri-heart-pulse-line"></i>
             <p>
-              The potatoas are not processed once cleaned ther are cooced
-              without preservations.
+              The potatoes are not processed, once cleaned they are cooked
+              without preservatives.
             </p>
-          </div>
-          <div className="care__description">
-            <i class="ri-hand-heart-line"></i>
+          </li>
+
+          <li className="care__item">
+            <i className="ri-hand-heart-line"></i>
             <p>They contain fewer calories and less fat for good health.</p>
-          </div>
-        </div>
-        <img src={care_chip} alt="care_chip" className="care__chip" />
+          </li>
+        </ul>
+
+        <img src={care_chip} alt="images" className="care__img" />
       </div>
     </section>
   );
