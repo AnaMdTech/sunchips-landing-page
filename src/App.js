@@ -1,3 +1,4 @@
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Care from "./components/Care";
 import Contact from "./components/Contact";
@@ -8,23 +9,27 @@ import Home from "./components/Home";
 import Main from "./components/Main";
 import Products from "./components/Products";
 import Banner from "./components/Banner";
+import ScrollUpBtn from "./components/ScrollUpBtn";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
-  // const [currentTab, setCurrentTab] = useState("Home");
-  const [isScrolled, setIsScrolled] = useState("false");
+  const [isHeaderScrolled, setIsHeaderScrolled] = useState(false); // State for Header
+  const [isScrollUpVisible, setIsScrollUpVisible] = useState(false); // State for ScrollUpBtn
+  const location = useLocation(); // Get the current route
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= 50) {
-        setIsScrolled((prev) => (prev !== true ? true : prev)); // Update only if state changes
-      } else {
-        setIsScrolled((prev) => (prev !== false ? false : prev));
-      }
+      const scrollY = window.scrollY;
+
+      // Logic for Header visibility
+      setIsHeaderScrolled(scrollY >= 50);
+
+      // Logic for ScrollUpBtn visibility
+      setIsScrollUpVisible(scrollY >= 300); // Show ScrollUpBtn at 300px
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -32,16 +37,34 @@ function App() {
 
   return (
     <>
-      <Header isScrolled={isScrolled} />
-      <Main>
-        <Home />
-        <Favorites />
-        <Care />
-        <Banner />
-        <Products />
-        <Contact />
-      </Main>
-      <Footer />
+      {/* Render Header only if not on Shopping Cart page */}
+      {location.pathname !== "/shopping-cart" && (
+        <Header isScrolled={isHeaderScrolled} />
+      )}
+
+      <Routes>
+        {/* Home Route */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Main>
+                <Home />
+                <Favorites />
+                <Care />
+                <Banner />
+                <Products />
+                <Contact />
+                <ScrollUpBtn isVisible={isScrollUpVisible} />
+              </Main>
+              <Footer />
+            </>
+          }
+        />
+
+        {/* Shopping Cart Route */}
+        <Route path="/shopping-cart" element={<ShoppingCart />} />
+      </Routes>
     </>
   );
 }

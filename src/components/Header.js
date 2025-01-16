@@ -1,5 +1,6 @@
 import Logo from "../assets/images/logo.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header({ isScrolled }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ function Header({ isScrolled }) {
             </li>
           </ul>
 
-          {/* <!-- Nav Close --> */}
+          {/* Nav Close */}
           <div
             className="nav__close"
             id="nav-close"
@@ -61,22 +62,22 @@ function Header({ isScrolled }) {
         </div>
 
         <div className="nav__buttons">
-          <div
+          {/* Cart Link */}
+          <Link
+            to="/shopping-cart"
             className={`nav__link--cart ${menuOpen ? "hidden" : ""}`}
             id="cart-link"
           >
             <i
               className="ri-shopping-basket-line cart__icon"
               id="cart-icon"
-              data-toggle="modal"
-              data-target="#cart-modal"
             ></i>
             <span className="cart__count" id="cart-count">
               0
             </span>
-          </div>
+          </Link>
 
-          {/* <!-- Toggle Button --> */}
+          {/* Toggle Button */}
           <div
             className="nav__toggle"
             id="nav-toggle"
