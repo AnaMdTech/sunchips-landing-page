@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 function Header({ isScrolled }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header
       className={`header ${isScrolled ? "shadow-header" : ""}`}
@@ -21,31 +25,47 @@ function Header({ isScrolled }) {
         >
           <ul className="nav__list">
             <li>
-              <a href="#home" className="nav__link active-link">
+              <a
+                href="#home"
+                className="nav__link active-link"
+                onClick={handleLinkClick}
+              >
                 Home
               </a>
             </li>
 
             <li>
-              <a href="#favorites" className="nav__link">
+              <a
+                href="#favorites"
+                className="nav__link"
+                onClick={handleLinkClick}
+              >
                 Favorites
               </a>
             </li>
 
             <li>
-              <a href="#care" className="nav__link">
+              <a href="#care" className="nav__link" onClick={handleLinkClick}>
                 Care
               </a>
             </li>
 
             <li>
-              <a href="#products" className="nav__link">
+              <a
+                href="#products"
+                className="nav__link"
+                onClick={handleLinkClick}
+              >
                 Products
               </a>
             </li>
 
             <li>
-              <a href="#contact" className="nav__link">
+              <a
+                href="#contact"
+                className="nav__link"
+                onClick={handleLinkClick}
+              >
                 Contact
               </a>
             </li>

@@ -3,7 +3,7 @@ import sunchips_natural from "../assets/images/sunchips-natural-flavor.png";
 import sunchips_tomato from "../assets/images/sunchips-tomato-flavor.png";
 function Favorites() {
   return (
-    <div className="favorite__container section">
+    <div className="favorite__container section" id="favorites">
       <div className="favorite__content">
         <h1>Discover Your Favorite Flavor</h1>
         <p>
