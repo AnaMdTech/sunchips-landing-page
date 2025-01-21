@@ -716,15 +716,18 @@ img {
   margin: 0 auto;
 }
 
+.cart__header h1 {
+  font: var(--font-regular) var(--h2-font-size) var(--second-font);
+}
+
 .shopping__cart {
-  padding-block: 2rem 1rem;
-  padding-inline: 1rem;
+  padding: 1rem;
   height: 100vh;
 }
 
 .cart__back--btn {
-  transform: scale(0.9);
-  font-size: 2rem;
+  transform: scale(0.8);
+  font-size: 1.5rem;
   color: var(--second-color);
   transition: color 0.4s;
   background-color: var(--first-color-dark);
@@ -738,22 +741,24 @@ img {
 
 .cart__back--btn:hover {
   color: var(--second-color-dark);
-  transform: translateY(-5px) scale(1);
+  transform: translateY(-5px) scale(0.85);
 }
 
 .cart__back--btn:active {
-  transform: translateY(-5px) scale(0.9);
+  transform: translateY(-5px) scale(0.8);
+  outline: none;
 }
 
 .cart__container {
   display: grid;
-  grid-template-rows: max-content 500px 1fr 1fr;
-  grid-gap: 1rem;
+  grid-template-rows: auto 400px 1fr 1fr;
+  grid-gap: 0.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .cart__title {
+  font: var(--font-regular) var(--h2-font-size) var(--second-font);
   margin: 1rem 0;
   text-align: center;
   text-transform: uppercase;
@@ -779,7 +784,7 @@ img {
 }
 
 .item__image {
-  width: 50px;
+  width: 40px;
   margin-right: 1rem;
   filter: var(--shadow-img);
 }
@@ -787,7 +792,7 @@ img {
 .remove-btn {
   background-color: transparent;
   border: none;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: var(--second-color);
   cursor: pointer;
   transition: color 0.4s;
@@ -801,14 +806,30 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0;
   font-size: 1.5rem;
   transition: color 0.4s;
 }
 
+.item__quantity span {
+  font-size: 1.1rem;
+}
+
 .item__quantity i {
   color: var(--second-color);
+  font-size: 1.3rem;
   cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.item__quantity i.ri-arrow-up-s-line:hover {
+  color: var(--second-color-dark);
+  transform: translateY(-3px);
+}
+
+.item__quantity i.ri-arrow-down-s-line:hover {
+  color: var(--second-color-dark);
+  transform: translateY(3px);
 }
 
 .cart__empty-message {
@@ -828,7 +849,7 @@ img {
   justify-content: space-between;
   align-items: center;
   color: var(--second-color);
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   border-top: 1px solid var(--second-color);
 }
 
@@ -838,16 +859,27 @@ img {
 }
 
 .cart__buttons button {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 0.5rem;
   box-shadow: inset var(--shadow-button);
   cursor: pointer;
   background-color: var(--first-color-dark);
   color: var(--second-color);
   border: none;
-  font-size: 1.3rem;
-  font-weight: 900;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: inherit;
   transition: all 0.4s;
+}
+
+.cart__buttons button:active {
+  transform: translateY(2px);
+  outline: none;
+}
+
+.cart__buttons a:active {
+  transform: translateY(2px);
+  outline: none;
 }
 
 /*=============== BREAKPOINTS ===============*/
