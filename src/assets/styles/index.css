@@ -832,6 +832,10 @@ img {
   transform: translateY(3px);
 }
 
+.item__details h2 {
+  font-size: 0.9rem;
+}
+
 .cart__empty-message {
   position: absolute;
   top: 40%;

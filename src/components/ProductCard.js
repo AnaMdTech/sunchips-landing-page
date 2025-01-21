@@ -1,4 +1,17 @@
-const ProductCard = ({ chip }) => {
+const ProductCard = ({ chip, handleAddToCart }) => {
+  const handleBuyClick = (e) => {
+    e.preventDefault();
+    const newChip = {
+      id: chip.id,
+      title: chip.title,
+      type: chip.type,
+      price: chip.price,
+      img: chip.img,
+      quantity: 1,
+    };
+    handleAddToCart(newChip);
+  };
+
   return (
     <div>
       <article className="products__card">
@@ -19,7 +32,11 @@ const ProductCard = ({ chip }) => {
         <span className="products__price" data-price={chip.price}>
           {chip.price}Br
         </span>
-        <button className="products__button" data-id={chip.type}>
+        <button
+          className="products__button"
+          data-id={chip.type}
+          onClick={handleBuyClick}
+        >
           <i className="ri-shopping-bag-3-fill"></i>
         </button>
       </article>

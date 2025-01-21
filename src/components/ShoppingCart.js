@@ -1,7 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import Beef from "../assets/images/sunchips-beef-flavor.png";
-function ShoppingCart() {
-  const navigate = useNavigate(); // Hook to navigate programmatically
+
+function ShoppingCart({ cartItems, handleClearCart }) {
+  const navigate = useNavigate();
+
+  // Calculate total price dynamically
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * (item.quantity || 1),
+    0
+  );
 
   return (
     <div className="shopping__cart" id="shopping-cart">
@@ -18,68 +24,50 @@ function ShoppingCart() {
         <h1>Shopping Cart</h1>
       </header>
       <div className="cart__container">
-        <h1 className="cart__title">your bag</h1>
+        <h1 className="cart__title">Your Bag</h1>
         <div className="item-container">
-          <div className="item">
-            <div className="item__image">
-              <img src={Beef} alt="item" />
-            </div>
-            <div className="item__details">
-              <h2>item 1</h2>
-              <p>399Br</p>
-              <button className="remove-btn">Remove</button>
-            </div>
-            <div className="item__quantity">
-              <i className="ri-arrow-up-s-line"></i>
-              <span>1</span>
-              <i className="ri-arrow-down-s-line"></i>
-            </div>
-          </div>
-          <div className="item">
-            <div className="item__image">
-              <img src={Beef} alt="item" />
-            </div>
-            <div className="item__details">
-              <h2>item 1</h2>
-              <p>399Br</p>
-              <button className="remove-btn">Remove</button>
-            </div>
-            <div className="item__quantity">
-              <i className="ri-arrow-up-s-line"></i>
-              <span>1</span>
-              <i className="ri-arrow-down-s-line"></i>
-            </div>
-          </div>
-          <div className="item">
-            <div className="item__image">
-              <img src={Beef} alt="item" />
-            </div>
-            <div className="item__details">
-              <h2>item 1</h2>
-              <p>399Br</p>
-              <button className="remove-btn">Remove</button>
-            </div>
-            <div className="item__quantity">
-              <i className="ri-arrow-up-s-line"></i>
-              <span>1</span>
-              <i className="ri-arrow-down-s-line"></i>
-            </div>
-          </div>
-          {/* <div className="cart__empty-message">your cart is empty!</div> */}
+          {cartItems.length > 0 ? (
+            cartItems.map((item, idx) => (
+              <div key={idx} className="item">
+                <div className="item__image">
+                  <img src={item.img} alt={item.title || "item"} />
+                </div>
+                <div className="item__details">
+                  <h2>{item.type || "N/A"}</h2>
+                  <p>{item.price} Br</p>
+                  <button className="remove-btn">Remove</button>
+                </div>
+                <div className="item__quantity">
+                  <i className="ri-arrow-up-s-line"></i>
+                  <span>{item.quantity || 1}</span>
+                  <i className="ri-arrow-down-s-line"></i>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="cart__empty-message">Your cart is empty!</div>
+          )}
         </div>
+
         <div className="cart__total">
           <h2>Total</h2>
-          <p>399Br</p>
+          <p>{totalPrice.toFixed(2)} Br</p>
         </div>
         <div className="cart__buttons">
-          <a href="/checkout" className="button">
+          <button className="button" onClick={() => navigate("/checkout")}>
             Checkout
-          </a>
-          <button className="clear-cart button">Clear Cart</button>
+          </button>
+          <button className="clear-cart button" onClick={handleClearCart}>
+            Clear Cart
+          </button>
         </div>
       </div>
     </div>
   );
 }
+
+ShoppingCart.defaultProps = {
+  cartItems: [],
+};
 
 export default ShoppingCart;

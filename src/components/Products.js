@@ -3,8 +3,9 @@ import { chipsList } from "./ChipsData";
 import crabImg from "../assets/images/crab.png";
 import hamburgerImg from "../assets/images/hamburger.png";
 import cheeseImg from "../assets/images/cheese.png";
+// import { useState } from "react";
 
-function Products() {
+function Products({ handleAddToCart }) {
   return (
     <section className="products section" id="products">
       <h2 className="section__title">
@@ -14,7 +15,11 @@ function Products() {
       <div className="products__container container">
         <div className="products__content grid">
           {chipsList.map((chip, index) => (
-            <ProductCard key={index} chip={chip} />
+            <ProductCard
+              key={index}
+              chip={chip}
+              handleAddToCart={handleAddToCart}
+            />
           ))}
         </div>
 

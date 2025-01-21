@@ -6,30 +6,35 @@ import img6 from "../assets/images/sunchips-habesha-spice-flavor.png";
 
 export const chipsList = [
   {
+    id: 1,
     type: "Tomato Flavor",
     title: "SunChips",
     price: "13",
     img: img1,
   },
   {
+    id: 2,
     type: "Tomato Flavor",
     title: "SunChips",
     price: "13",
     img: img2,
   },
   {
+    id: 3,
     type: "Tomato Flavor",
     title: "SunChips",
     price: "13",
     img: img3,
   },
   {
+    id: 4,
     type: "Habesha Spice",
     title: "SunChips",
     price: "13",
     img: img5,
   },
   {
+    id: 5,
     type: "Habesha Spice",
     title: "SunChips",
     price: "13",

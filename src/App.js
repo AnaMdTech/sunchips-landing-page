@@ -13,37 +13,55 @@ import ScrollUpBtn from "./components/ScrollUpBtn";
 import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
-  const [isHeaderScrolled, setIsHeaderScrolled] = useState(false); // State for Header
-  const [isScrollUpVisible, setIsScrollUpVisible] = useState(false); // State for ScrollUpBtn
-  const location = useLocation(); // Get the current route
+  const [cartItems, setCartItems] = useState(() => {
+    // Load cartItems from localStorage or initialize as an empty array
+    const storedCart = localStorage.getItem("cartItems");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
 
+  const [isHeaderScrolled, setIsHeaderScrolled] = useState(false);
+  const [isScrollUpVisible, setIsScrollUpVisible] = useState(false);
+  const location = useLocation();
+
+  // Add item to cart
+  const handleAddToCart = (chip) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === chip.id);
+
+      if (existingItem) {
+        return prevItems.map((item) =>
+          item.id === chip.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      } else {
+        return [...prevItems, { ...chip, quantity: 1 }];
+      }
+    });
+  };
+
+  // Save cartItems to localStorage
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  // Scroll event handler
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
-      // Logic for Header visibility
       setIsHeaderScrolled(scrollY >= 50);
-
-      // Logic for ScrollUpBtn visibility
-      setIsScrollUpVisible(scrollY >= 300); // Show ScrollUpBtn at 300px
+      setIsScrollUpVisible(scrollY >= 300);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      {/* Render Header only if not on Shopping Cart page */}
       {location.pathname !== "/shopping-cart" && (
         <Header isScrolled={isHeaderScrolled} />
       )}
 
       <Routes>
-        {/* Home Route */}
         <Route
           path="/"
           element={
@@ -53,7 +71,7 @@ function App() {
                 <Favorites />
                 <Care />
                 <Banner />
-                <Products />
+                <Products handleAddToCart={handleAddToCart} />
                 <Contact />
                 <ScrollUpBtn isVisible={isScrollUpVisible} />
               </Main>
@@ -61,9 +79,15 @@ function App() {
             </>
           }
         />
-
-        {/* Shopping Cart Route */}
-        <Route path="/shopping-cart" element={<ShoppingCart />} />
+        <Route
+          path="/shopping-cart"
+          element={
+            <ShoppingCart
+              cartItems={cartItems}
+              handleClearCart={() => setCartItems([])}
+            />
+          }
+        />
       </Routes>
     </>
   );
