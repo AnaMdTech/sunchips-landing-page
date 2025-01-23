@@ -394,6 +394,30 @@ img {
   overflow: hidden;
 }
 
+.favorite__imgs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  backface-visibility: hidden;
+}
+
+.favorite__imgs img {
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  backface-visibility: hidden;
+}
+
+.favorite__imgs:hover img:not(:hover) {
+  transform: scale(0.95);
+}
+
+.favorite__imgs img:hover {
+  transform: scale(1.05);
+}
+
 /*=============== CARE ===============*/
 .care {
   background-color: var(--first-color-dark);
@@ -718,6 +742,7 @@ img {
 
 .cart__header h1 {
   font: var(--font-regular) var(--h2-font-size) var(--second-font);
+  text-transform: uppercase;
 }
 
 .shopping__cart {
@@ -882,6 +907,106 @@ img {
 }
 
 .cart__buttons a:active {
+  transform: translateY(2px);
+  outline: none;
+}
+
+/* =============== CHECKOUT PAGE =============== */
+.checkout {
+  padding: 1rem;
+  height: 100vh;
+}
+
+.checkout__form {
+  background-color: var(--first-color-dark);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: inset var(--shadow-button);
+  max-width: 400px;
+  margin-top: 1rem;
+  height: 85vh;
+}
+
+.checkout__form h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.checkout__form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--second-color);
+}
+
+.checkout__form input,
+select,
+.checkout__payment {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  box-shadow: inset var(--shadow-button);
+  color: var(--second-color);
+  font-family: inherit;
+  margin-bottom: 1rem;
+}
+
+.checkout__name,
+.checkout__phone,
+.checkout__address {
+  position: relative;
+}
+
+.checkout__zone {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  grid-auto-rows: auto;
+  margin-bottom: 1rem;
+  border-bottom: solid 1px var(--second-color);
+}
+
+.checkout__zone select {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.checkout__zone select option {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: var(--first-color-dark);
+}
+
+.checkout__details {
+  margin-bottom: 1rem;
+}
+
+.checkout__total,
+.checkout__quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--second-color);
+  font-size: 1.1rem;
+}
+
+.checkout__total h2,
+.checkout__quantity h2 {
+  font-size: 1rem;
+}
+
+.checkout__payment {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.checkout__payment:active {
   transform: translateY(2px);
   outline: none;
 }
