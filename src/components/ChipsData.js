@@ -1,8 +1,8 @@
-import img1 from "../assets/images/favorite-chips-1.png";
-import img2 from "../assets/images/favorite-chips-2.png";
-import img3 from "../assets/images/favorite-chips-3.png";
-import img5 from "../assets/images/sunchips-paprika-flavor.png";
-import img6 from "../assets/images/sunchips-habesha-spice-flavor.png";
+import img1 from "../assets/images/sunchips-beef-flavor.png";
+import img2 from "../assets/images/sunchips-habesha-spice-flavor.png";
+import img3 from "../assets/images/sunchips-natural-flavor.png";
+import img4 from "../assets/images/sunchips-paprika-flavor.png";
+import img5 from "../assets/images/sunchips-tomato-flavor.png";
 
 export const chipsList = [
   {
@@ -31,13 +31,13 @@ export const chipsList = [
     type: "Habesha Spice",
     title: "SunChips",
     price: "13",
-    img: img5,
+    img: img4,
   },
   {
     id: 5,
     type: "Habesha Spice",
     title: "SunChips",
     price: "13",
-    img: img6,
+    img: img5,
   },
 ];
