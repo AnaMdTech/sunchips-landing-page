@@ -1,9 +1,22 @@
 import Logo from "../assets/images/logo.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Header({ isScrolled }) {
+function Header({ isScrolled, cartItems }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cartItemCount, setCartItemCount] = useState(0);
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      const count = cartItems.reduce(
+        (acc, item) => acc + (item.quantity || 1),
+        0
+      );
+      setCartItemCount(count);
+    } else {
+      setCartItemCount(0);
+    }
+  }, [cartItems]);
 
   const handleLinkClick = () => {
     setMenuOpen(false);
@@ -93,7 +106,7 @@ function Header({ isScrolled }) {
               id="cart-icon"
             ></i>
             <span className="cart__count" id="cart-count">
-              0
+              {cartItemCount}
             </span>
           </Link>
 
