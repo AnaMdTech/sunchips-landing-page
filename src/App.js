@@ -11,6 +11,7 @@ import Products from "./components/Products";
 import Banner from "./components/Banner";
 import ScrollUpBtn from "./components/ScrollUpBtn";
 import ShoppingCart from "./components/ShoppingCart";
+import Checkout from "./components/Checkout";
 
 function App() {
   const [cartItems, setCartItems] = useState(() => {
@@ -22,6 +23,19 @@ function App() {
   const [isHeaderScrolled, setIsHeaderScrolled] = useState(false);
   const [isScrollUpVisible, setIsScrollUpVisible] = useState(false);
   const location = useLocation();
+  const [itemCounts, setItemCounts] = useState({});
+
+  // Clear Cart object
+  const handleClearCart = () => {
+    setCartItems([]);
+  };
+
+  // Calculate total price dynamically
+  const totalPrice = cartItems.reduce(
+    (acc, item) =>
+      acc + item.price * (itemCounts[item.id] || item.quantity || 1),
+    0
+  );
 
   // Add item to cart
   const handleAddToCart = (chip) => {
@@ -38,9 +52,22 @@ function App() {
     });
   };
 
+  // Remove item from cart
+  const handleRemoveFromCart = (id) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
   // Save cartItems to localStorage
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  // Update itemCounts state when cartItems change
+  useEffect(() => {
+    const newitemCounts = cartItems.reduce((acc, item) => {
+      acc[item.id] = item.quantity || 1;
+      return acc;
+    }, {});
+    setItemCounts(newitemCounts);
   }, [cartItems]);
 
   // Scroll event handler
@@ -57,9 +84,10 @@ function App() {
 
   return (
     <>
-      {location.pathname !== "/shopping-cart" && (
-        <Header isScrolled={isHeaderScrolled} />
-      )}
+      {location.pathname !== "/shopping-cart" &&
+        location.pathname !== "/checkout" && (
+          <Header isScrolled={isHeaderScrolled} cartItems={cartItems} />
+        )}
 
       <Routes>
         <Route
@@ -84,7 +112,22 @@ function App() {
           element={
             <ShoppingCart
               cartItems={cartItems}
-              handleClearCart={() => setCartItems([])}
+              handleClearCart={handleClearCart}
+              handleRemoveFromCart={handleRemoveFromCart}
+              totalPrice={totalPrice}
+              itemCounts={itemCounts}
+              setItemCounts={setItemCounts}
+            />
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <Checkout
+              cartItems={cartItems}
+              handleClearCart={handleClearCart}
+              handleRemoveFromCart={handleRemoveFromCart}
+              totalPrice={totalPrice}
             />
           }
         />
