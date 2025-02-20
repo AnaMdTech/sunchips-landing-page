@@ -1013,5 +1013,51 @@ select,
 
 /*=============== BREAKPOINTS ===============*/
 /* For medium devices */
+@media screen and (min-width: 620px) {
+  .home__description {
+    font-size: 19px;
+  }
+  /* Adjust favorite styles */
+  .favorites__article {
+    position: relative;
+    width: 280px;
+  }
+
+  .favorites__img {
+    width: 280px;
+  }
+
+  .favorites__leaf-1,
+  .favorites__leaf-2 {
+    width: 80px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    margin-inline: 3rem;
+  }
+
+  /* Adjust home styles */
+  .home__buttons {
+    margin-bottom: 3.5rem;
+  }
+
+  .home__circle {
+    width: 450px;
+    height: 450px;
+  }
+  .home__subcircle {
+    width: 380px;
+    height: 380px;
+  }
+
+  .home__images .home__img {
+    width: 300px;
+  }
+
+  .home__images img {
+    width: 90px;
+  }
+}
 
 /* For large devices */
