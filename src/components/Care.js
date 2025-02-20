@@ -1,12 +1,26 @@
 import care_chip from "../assets/images/care-chips.png";
+import { motion } from "framer-motion";
+
 function Care() {
   return (
     <section className="care section" id="care">
-      <h2 className="section__title">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="section__title"
+      >
         ENJOY AND TAKE <br /> CARE OF YOUR HEALTH
-      </h2>
+      </motion.h2>
       <div className="care__container container grid">
-        <ul className="care__list">
+        <motion.ul
+          initial={{ opacity: 0, x: 150 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          className="care__list"
+        >
           <li className="care__item">
             <i className="ri-plant-line"></i>
             <p>
@@ -34,9 +48,17 @@ function Care() {
             <i className="ri-hand-heart-line"></i>
             <p>They contain fewer calories and less fat for good health.</p>
           </li>
-        </ul>
+        </motion.ul>
 
-        <img src={care_chip} alt="images" className="care__img" />
+        <motion.img
+          initial={{ opacity: 0, x: -150 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          src={care_chip}
+          alt="images"
+          className="care__img"
+        />
       </div>
     </section>
   );
