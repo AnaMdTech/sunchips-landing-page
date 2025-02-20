@@ -1061,3 +1061,137 @@ select,
 }
 
 /* For large devices */
+@media screen and (min-width: 960px) {
+  .container {
+    margin-inline: auto;
+  }
+  .section {
+    padding-block: 5rem 4rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+  .nav__link {
+    font-size: 20px;
+  }
+  /* Adjust home styles */
+  .home__container {
+    padding-top: 5rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 5rem;
+  }
+
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+
+  .nav__menu {
+    position: static; /* Remove fixed positioning */
+    background-color: transparent; /* Make background transparent */
+    width: auto;
+    height: auto;
+    padding: 0;
+    flex-direction: row; /* Display links horizontally */
+    justify-content: flex-end;
+    align-items: center;
+    transition: none; /* Disable transitions for larger screens */
+  }
+
+  .nav__list {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2.5rem;
+  }
+
+  .products__content {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 6rem;
+  }
+
+  .contact {
+    max-width: initial;
+  }
+
+  .contact__content {
+    grid-template-columns: 420px 435px;
+    justify-content: space-between;
+  }
+
+  .contact__img {
+    width: 350px;
+  }
+
+  .contact__data {
+    grid-template-columns: repeat(2, max-content);
+    justify-self: center;
+  }
+
+  .care__list {
+    justify-content: center;
+  }
+
+  /* Adjust footer styles */
+  .footer__logo img {
+    width: 300px;
+  }
+
+  .footer__content {
+    justify-content: space-between;
+  }
+
+  .footer__link {
+    font-size: 1.5rem;
+  }
+
+  .footer__copy {
+    font-size: 1.5rem;
+  }
+
+  .favorite__content {
+    margin-inline: 200px;
+  }
+
+  .favorite__imgs img {
+    width: 300px;
+    height: auto;
+  }
+
+  .favorites__cheese-1,
+  .favorites__cheese-2 {
+    width: 80px;
+  }
+
+  .favorites__cheese-1 {
+    right: -18rem;
+  }
+
+  .favorites__cheese-2 {
+    left: -18rem;
+  }
+
+  .favorites__article,
+  .favorites__img {
+    width: 350px;
+  }
+
+  .favorites__leaf-1,
+  .favorites__leaf-2 {
+    width: 110px;
+  }
+
+  .care__container {
+    grid-template-columns: 500px 410px;
+    align-items: center;
+    column-gap: 6rem;
+    padding-block: 4rem;
+  }
+
+  .care__img {
+    width: 550px;
+    order: -1;
+  }
+}
