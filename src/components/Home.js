@@ -15,7 +15,7 @@ function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
           className="home__data"
         >
           <motion.h1 className="home__title">
@@ -49,36 +49,36 @@ function Home() {
             className="home__circle"
             initial={{ scale: 0, rotate: 0 }}
             animate={{ scale: 1, rotate: 10 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
           >
             <motion.div
               className="home__subcircle"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{
-                duration: 1,
+                duration: 0.8,
                 ease: "easeOut",
-                delay: 0.5,
+                delay: 0.3,
                 type: "spring",
                 stiffness: 100,
               }}
             ></motion.div>
           </motion.div>
 
-          {/* Other elements animate after circles are visible */}
+          {/* Other elements animate faster */}
           <motion.img
             src={homeChipsImage}
             alt="Home display of SunChips"
             className="home__img"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut", delay: 2 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 1 }}
           />
 
           <motion.img
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 2.3 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 1.5 }}
             src={chipsFlavor1}
             alt="SunChips bag - flavor 1"
             className="home__chips-1"
@@ -86,7 +86,7 @@ function Home() {
           <motion.img
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 2.6 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 1.7 }}
             src={chipsFlavor2}
             alt="SunChips bag - flavor 2"
             className="home__chips-2"
@@ -94,7 +94,7 @@ function Home() {
           <motion.img
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 2.9 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 1.9 }}
             src={chipsFlavor3}
             alt="SunChips bag - flavor 3"
             className="home__chips-3"
@@ -102,7 +102,7 @@ function Home() {
           <motion.img
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 3.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 2.1 }}
             src={tomatoSlice1}
             alt="Tomato slice decoration"
             className="home__tomato-1"
@@ -110,7 +110,7 @@ function Home() {
           <motion.img
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 3.5 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 2.3 }}
             src={tomatoSlice2}
             alt="Another tomato slice decoration"
             className="home__tomato-2"
@@ -118,7 +118,7 @@ function Home() {
           <motion.img
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 3.8 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 2.3 }}
             src={leafDecoration}
             alt="Leaf decoration for SunChips theme"
             className="home__leaf"
