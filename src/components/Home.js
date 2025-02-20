@@ -6,15 +6,21 @@ import chipsFlavor3 from "../assets/images/chips-3.png";
 import tomatoSlice1 from "../assets/images/tomato-1.png";
 import tomatoSlice2 from "../assets/images/tomato-2.png";
 import leafDecoration from "../assets/images/leaf-3.png";
+import { motion } from "framer-motion";
 
 function Home() {
   return (
     <section className="home section" id="home">
       <div className="home__container container grid">
-        <div className="home__data">
-          <h1 className="home__title">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+          className="home__data"
+        >
+          <motion.h1 className="home__title">
             SNACK <br /> WITH NO <br /> LIMITS
-          </h1>
+          </motion.h1>
 
           <p className="home__description">
             When you are hungry and don't have time to cook, snacks are the
@@ -28,51 +34,91 @@ function Home() {
           />
 
           <div className="home__buttons">
-            <a href="#favorites" className="button ">
+            <a href="#favorites" className="button">
               Snack Now
             </a>
             <a href="#products" className="button button__ghost">
               Buy Now
             </a>
           </div>
-        </div>
+        </motion.div>
 
         <div className="home__images">
-          <div className="home__circle">
-            <div className="home__subcircle"></div>
-          </div>
+          {/* Home Circle with Animation */}
+          <motion.div
+            className="home__circle"
+            initial={{ scale: 0, rotate: 0 }}
+            animate={{ scale: 1, rotate: 10 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          >
+            <motion.div
+              className="home__subcircle"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{
+                duration: 1,
+                ease: "easeOut",
+                delay: 0.5,
+                type: "spring",
+                stiffness: 100,
+              }}
+            ></motion.div>
+          </motion.div>
 
-          <img
+          {/* Other elements animate after circles are visible */}
+          <motion.img
             src={homeChipsImage}
             alt="Home display of SunChips"
             className="home__img"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut", delay: 2 }}
           />
-          <img
+
+          <motion.img
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 2.3 }}
             src={chipsFlavor1}
             alt="SunChips bag - flavor 1"
             className="home__chips-1"
           />
-          <img
+          <motion.img
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 2.6 }}
             src={chipsFlavor2}
             alt="SunChips bag - flavor 2"
             className="home__chips-2"
           />
-          <img
+          <motion.img
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 2.9 }}
             src={chipsFlavor3}
             alt="SunChips bag - flavor 3"
             className="home__chips-3"
           />
-          <img
+          <motion.img
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 3.2 }}
             src={tomatoSlice1}
             alt="Tomato slice decoration"
             className="home__tomato-1"
           />
-          <img
+          <motion.img
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 3.5 }}
             src={tomatoSlice2}
             alt="Another tomato slice decoration"
             className="home__tomato-2"
           />
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 3.8 }}
             src={leafDecoration}
             alt="Leaf decoration for SunChips theme"
             className="home__leaf"
