@@ -2,16 +2,29 @@ import contactMan from "../assets/images/contact-man.png";
 import shrimpImg from "../assets/images/shrimp.png";
 import crabImg from "../assets/images/crab.png";
 import meatImg from "../assets/images/meat.png";
+import { motion } from "framer-motion";
 function Contact() {
   return (
     <section className="contact section" id="contact">
       <div className="contact__container container">
-        <h2 className="section__title">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="section__title"
+        >
           CONTACT US TO <br /> EAT CHIPS
-        </h2>
+        </motion.h2>
 
         <div className="contact__content grid">
-          <div className="contact__data grid">
+          <motion.div
+            initial={{ opacity: 0, x: 150 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            className="contact__data grid"
+          >
             <div>
               <h3 className="contact__title">Write to us</h3>
 
@@ -46,9 +59,17 @@ function Contact() {
                 Av. Moon #4321
               </address>
             </div>
-          </div>
+          </motion.div>
 
-          <img src={contactMan} alt="contact__img" className="contact__img" />
+          <motion.img
+            initial={{ opacity: 0, x: -150 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            src={contactMan}
+            alt="contact__img"
+            className="contact__img"
+          />
         </div>
 
         <img
